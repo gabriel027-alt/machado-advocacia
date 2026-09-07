@@ -4,31 +4,46 @@
 
 @layer base {
   body {
-    @apply bg-[#04080D] text-slate-100 font-sans selection:bg-[#C5A880]/30 selection:text-white antialiased overflow-x-hidden;
+    @apply bg-[#03070C] text-slate-200 font-sans selection:bg-[#C5A880]/30 selection:text-white antialiased overflow-x-hidden tracking-normal;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight text-white;
   }
 }
 
-/* Utilitários Glassmorphism */
-.glass-card {
-  background: rgba(255, 255, 255, 0.02);
+/* Estilo Editorial de Boutique Jurídica */
+.editorial-card {
+  background: rgba(7, 14, 23, 0.65);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-.glass-card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.editorial-card-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glass-card-hover:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(197, 168, 128, 0.3);
-  box-shadow: 0 10px 30px -10px rgba(197, 168, 128, 0.15);
+.editorial-card-hover:hover {
+  background: rgba(12, 22, 36, 0.85);
+  border-color: rgba(197, 168, 128, 0.35);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 20px 0 rgba(197, 168, 128, 0.1);
+  transform: translateY(-2px);
 }
 
-.glass-header {
-  background: rgba(4, 8, 13, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+.editorial-header {
+  background: rgba(3, 7, 12, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF5E6 0%, #C5A880 50%, #A68960 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 15px rgba(197, 168, 128, 0.15);
 }
