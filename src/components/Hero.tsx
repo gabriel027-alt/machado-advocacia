@@ -9,35 +9,27 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-[#03070C] pt-10 pb-20 md:pt-16 md:pb-28">
       
-      {/* 2. Atmosfera e Fundo com Vídeo/Imagem Escuro P&B com Iluminação Dramática */}
+      {/* 1. Integração do Vídeo Local no Fundo (/hero-bg.mp4) */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
         <video
           autoPlay
           loop
           muted
           playsInline
-          preload="metadata"
-          className="w-full h-full object-cover opacity-20 filter grayscale brightness-75 contrast-125"
+          preload="auto"
+          className="w-full h-full object-cover opacity-25 filter brightness-75 contrast-125"
         >
-          <source
-            src="https://assets.mixkit.co/videos/preview/mixkit-lawyer-reviewing-documents-in-office-41886-large.mp4"
-            type="video/mp4"
-          />
-          <source
-            src="https://assets.mixkit.co/videos/preview/mixkit-slow-motion-of-a-courtroom-gavel-falling-41885-large.mp4"
-            type="video/mp4"
-          />
+          <source src="/hero-bg.mp4" type="video/mp4" />
         </video>
-        {/* Camada dupla de fusão dark com radial de estúdio */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#03070C]/80 via-[#03070C]/90 to-[#03070C]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(197,168,128,0.08),transparent_65%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#03070C]/50 via-[#03070C]/80 to-[#03070C]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(197,168,128,0.12),transparent_70%)]" />
       </div>
 
       {/* Conteúdo Principal com relative z-10 */}
       <div className="max-w-6xl mx-auto px-5 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Lado Esquerdo — Tipografia e Copy Refinadas em Caixa Alta e Baixa */}
+          {/* Lado Esquerdo — Texto Editorial de Alta Autoridade */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -76,7 +68,7 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Grid de Métricas no Rodapé da Hero em 3 Colunas Organizadas */}
+            {/* Grid de Métricas no Rodapé da Hero */}
             <div className="pt-8 grid grid-cols-3 gap-4 border-t border-white/10 w-full max-w-lg">
               <div>
                 <div className="text-xs font-mono font-semibold text-white tracking-wider uppercase">DEFESA PENAL</div>
@@ -93,7 +85,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Lado Direito — Foto do Dr. Belgo com Zoom Focado de 170% */}
+          {/* Lado Direito — Foto do Dr. Belgo com Zoom de 170% */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -110,7 +102,7 @@ export default function Hero() {
                   ATUAÇÃO COMBATIVA • OAB/TO
                 </div>
 
-                {/* Imagem do Dr. Belgo com Zoom Focado de 170% */}
+                {/* Imagem do Dr. Belgo com Zoom Focado de 170% (scale-[1.7] origin-top) */}
                 <Image
                   src="/belgo.jpg"
                   alt="Dr. Belgo Conceição Machado - Advogado OAB/TO 13.254"

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus, HelpCircle } from "lucide-react";
+import { Plus, Minus, HelpCircle, ExternalLink, PhoneCall } from "lucide-react";
 
 interface FAQItem {
   id: string;
@@ -42,12 +42,18 @@ const faqData: FAQItem[] = [
   },
 ];
 
+const PHONE_NUMBER = "5563992565455";
+
 export default function FAQ() {
   const [openId, setOpenId] = useState<string | null>("plantao");
 
   const toggleItem = (id: string) => {
     setOpenId(openId === id ? null : id);
   };
+
+  const whatsappUrl = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(
+    "Olá, Dr. Belgo Machado. Tenho uma dúvida urgente sobre um caso / procedimento em andamento."
+  )}`;
 
   return (
     <section id="faq" className="relative z-10 py-24 border-t border-white/10 bg-[#03070C]">
@@ -122,6 +128,29 @@ export default function FAQ() {
               </div>
             );
           })}
+        </div>
+
+        {/* 3. Bloco Discreto de Fechamento Pós-FAQ */}
+        <div className="mt-12 rounded-2xl border border-[#C5A880]/30 bg-[#070E17]/80 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 backdrop-blur-md">
+          <div className="space-y-1 text-center sm:text-left">
+            <span className="text-xs font-mono uppercase tracking-widest text-[#C5A880]">
+              Atendimento Imediato de Emergência
+            </span>
+            <p className="font-serif text-base sm:text-lg font-medium text-white">
+              Dúvida urgente sobre prisão ou procedimento em andamento? Fale diretamente no plantão criminal.
+            </p>
+          </div>
+
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-[#C5A880] text-[#03070C] font-semibold text-xs sm:text-sm tracking-wide hover:brightness-110 transition-all shrink-0 shadow-lg shadow-[#C5A880]/15"
+          >
+            <PhoneCall className="w-4 h-4" />
+            Falar no Plantão Criminal
+            <ExternalLink className="w-4 h-4" />
+          </a>
         </div>
 
       </div>
