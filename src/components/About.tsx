@@ -2,12 +2,18 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Lock, ShieldAlert, Award } from "lucide-react";
+import { Lock, ShieldAlert, Award, Scale } from "lucide-react";
 
 export default function About() {
   return (
-    <section className="relative z-10 py-24 border-t border-white/10">
-      <div className="max-w-6xl mx-auto px-5">
+    <section className="relative z-10 py-24 border-t border-white/10 bg-[#03070C] overflow-hidden">
+      
+      {/* 3. Marca d'Água Jurídica Monumental em Escala Gigante (Zero Custo de Dados) */}
+      <div className="absolute -right-16 top-1/2 -translate-y-1/2 opacity-[0.03] text-[#C5A880] pointer-events-none select-none scale-[3.5]">
+        <Scale className="w-96 h-96" />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-5 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}

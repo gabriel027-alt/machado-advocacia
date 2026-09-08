@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ShieldAlert, FileCheck2, Users2, ArrowUpRight } from "lucide-react";
+import { ShieldAlert, FileCheck2, Users2, ArrowUpRight, Scale } from "lucide-react";
 
 const specialties = [
   {
@@ -33,8 +33,14 @@ const specialties = [
 
 export default function Specialties() {
   return (
-    <section id="atuacao" className="relative z-10 py-24 border-t border-white/10 bg-[#050A10]/50">
-      <div className="max-w-6xl mx-auto px-5">
+    <section id="atuacao" className="relative z-10 py-24 border-t border-white/10 bg-[#050A10]/50 overflow-hidden">
+      
+      {/* 3. Marca d'Água Jurídica Monumental em Escala Gigante (Zero Custo de Dados) */}
+      <div className="absolute -right-16 top-1/2 -translate-y-1/2 opacity-[0.03] text-[#C5A880] pointer-events-none select-none scale-[3.5]">
+        <Scale className="w-96 h-96" />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-5 relative z-10">
         
         {/* Cabeçalho de Seção Editorial */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">

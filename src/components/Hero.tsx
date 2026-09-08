@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-[#03070C] pt-10 pb-20 md:pt-16 md:pb-28">
       
-      {/* 1. Integração do Vídeo Local no Fundo (/hero-bg.mp4) */}
+      {/* 1. Foco da Balança no Vídeo com Máscara Gradiente Assimétrica */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
         <video
           autoPlay
@@ -17,19 +17,23 @@ export default function Hero() {
           muted
           playsInline
           preload="auto"
-          className="w-full h-full object-cover opacity-25 filter brightness-75 contrast-125"
+          className="w-full h-full object-cover object-[80%_center] scale-105 opacity-35 filter brightness-90 contrast-125"
         >
           <source src="/hero-bg.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#03070C]/50 via-[#03070C]/80 to-[#03070C]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(197,168,128,0.12),transparent_70%)]" />
+        
+        {/* Máscara gradiente horizontal assimétrica: escurece o lado esquerdo para o texto e revela a balança à direita */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#03070C] via-[#03070C]/80 to-transparent pointer-events-none" />
+        
+        {/* Máscara vertical para transição suave de rolagem */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#03070C]/60 to-[#03070C] pointer-events-none" />
       </div>
 
       {/* Conteúdo Principal com relative z-10 */}
       <div className="max-w-6xl mx-auto px-5 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Lado Esquerdo — Texto Editorial de Alta Autoridade */}
+          {/* Lado Esquerdo — Texto Editorial em Caixa Alta e Baixa Refinada */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -42,8 +46,8 @@ export default function Hero() {
               DEFESA TÉCNICA & ATUAÇÃO COMBATIVA
             </div>
 
-            {/* Título Principal */}
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.12] tracking-tight text-white">
+            {/* 2. Título Principal em Caixa Alta e Baixa */}
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.14] tracking-tight text-white">
               Defesa Incansável e <span className="gold-gradient-text">Rigor Técnico</span> em Causas de Alta Complexidade.
             </h1>
 
@@ -85,7 +89,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Lado Direito — Foto do Dr. Belgo com Zoom de 170% */}
+          {/* 4. Lado Direito — Card do Dr. Belgo com Vinheta e Fusão Lateral Profunda */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -94,15 +98,15 @@ export default function Hero() {
           >
             <div className="relative mx-auto max-w-[400px] lg:max-w-none rounded-2xl overflow-hidden editorial-card p-2 shadow-2xl gold-border-glow">
               
-              {/* Container da Imagem com Altura Fixa h-[480px] sm:h-[540px] */}
-              <div className="h-[480px] sm:h-[540px] relative overflow-hidden rounded-xl bg-[#03070C]">
+              {/* Container da Imagem com Altura Fixa e Sombra Interna Profunda */}
+              <div className="h-[480px] sm:h-[540px] relative overflow-hidden rounded-xl bg-[#03070C] shadow-[inset_0_0_50px_rgba(3,7,12,0.95)]">
                 
                 {/* Micro-Badge Discreto no Canto Superior */}
                 <div className="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-[#03070C]/85 border border-[#C5A880]/40 text-[#C5A880] text-[10px] font-mono uppercase tracking-widest backdrop-blur-md shadow-md">
                   ATUAÇÃO COMBATIVA • OAB/TO
                 </div>
 
-                {/* Imagem do Dr. Belgo com Zoom Focado de 170% (scale-[1.7] origin-top) */}
+                {/* Imagem do Dr. Belgo com Zoom Focado de 170% */}
                 <Image
                   src="/belgo.jpg"
                   alt="Dr. Belgo Conceição Machado - Advogado OAB/TO 13.254"
@@ -112,8 +116,9 @@ export default function Hero() {
                   className="object-cover object-[50%_12%] scale-[1.7] origin-top translate-y-2"
                 />
 
-                {/* Vinheta Escura Suave na Base */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#03070C] via-[#03070C]/40 to-transparent z-10 pointer-events-none"></div>
+                {/* Vinheta e Gradiente Escuro Lateral/Base para Fusão Absoluta */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#03070C] via-[#03070C]/30 to-transparent z-10 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#03070C]/80 via-transparent to-[#03070C]/80 z-10 pointer-events-none"></div>
 
                 {/* Legenda Estritamente Colada na Base Inferior */}
                 <div className="absolute bottom-3 inset-x-3 p-3 rounded-xl editorial-header flex items-center justify-between border border-white/10 shadow-2xl z-20">
