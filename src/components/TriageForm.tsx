@@ -110,11 +110,11 @@ export default function TriageForm() {
                         onClick={() => handleSelectArea(area)}
                         className={`w-full text-left px-5 py-4 rounded-xl border transition-all flex justify-between items-center ${
                           isSelected
-                            ? "border-[#C5A880] bg-[#C5A880]/15 text-white shadow-lg shadow-[#C5A880]/10"
+                            ? "border-[#C5A880] ring-1 ring-[#C5A880] bg-[#C5A880]/10 text-white font-medium shadow-lg shadow-[#C5A880]/10"
                             : "border-white/10 bg-white/[0.02] text-slate-300 hover:bg-white/[0.05] hover:border-white/20"
                         }`}
                       >
-                        <span className="text-sm font-medium">{area}</span>
+                        <span className="text-sm">{area}</span>
                         {isSelected ? (
                           <CheckCircle className="w-4 h-4 text-[#C5A880]" />
                         ) : (
@@ -164,11 +164,11 @@ export default function TriageForm() {
                         onClick={() => handleSelectUrgency(item.title)}
                         className={`w-full text-left p-4 rounded-xl border transition-all flex justify-between items-center ${
                           isSelected
-                            ? "border-[#C5A880] bg-[#C5A880]/15 text-white shadow-lg shadow-[#C5A880]/10"
+                            ? "border-[#C5A880] ring-1 ring-[#C5A880] bg-[#C5A880]/10 text-white font-medium shadow-lg shadow-[#C5A880]/10"
                             : "border-white/10 bg-white/[0.02] text-slate-300 hover:bg-white/[0.05] hover:border-white/20"
                         }`}
                       >
-                        <span className="text-sm font-medium pr-2">{item.title}</span>
+                        <span className="text-sm pr-2">{item.title}</span>
                         <span className={`text-[10px] font-mono px-2.5 py-1 border rounded-md shrink-0 ${item.tagColor}`}>
                           {item.tag}
                         </span>

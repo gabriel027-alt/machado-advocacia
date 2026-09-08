@@ -51,7 +51,7 @@ export default function Specialties() {
           </p>
         </div>
 
-        {/* Grid de Cards Editoriais */}
+        {/* Grid de Cards Editoriais com Linha de Destaque Superior Dourada no Hover */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
           {specialties.map((item, i) => {
             const Icon = item.icon;
@@ -62,7 +62,7 @@ export default function Specialties() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
-                className="rounded-2xl p-8 editorial-card editorial-card-hover flex flex-col justify-between group relative"
+                className="rounded-2xl p-8 editorial-card editorial-card-hover hover:border-t-[#C5A880] transition-all duration-300 flex flex-col justify-between group relative"
               >
                 <div>
                   <div className="flex items-center justify-between mb-8">
