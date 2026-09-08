@@ -2,23 +2,28 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, Award, Lock } from "lucide-react";
+import { ArrowRight, ShieldCheck, Award } from "lucide-react";
 import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative z-10 pt-12 pb-20 md:pt-20 md:pb-28">
-      <div className="max-w-6xl mx-auto px-5">
+    <section className="relative z-10 pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
+      
+      {/* Atmosfera de Estúdio - Luzes Radiais Ambiente */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[radial-gradient(circle_at_50%_50%,rgba(197,168,128,0.08),transparent_65%)] pointer-events-none z-0"></div>
+      <div className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-[radial-gradient(circle_at_50%_50%,rgba(216,190,154,0.05),transparent_70%)] pointer-events-none z-0"></div>
+
+      <div className="max-w-6xl mx-auto px-5 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
-          {/* Lado Esquerdo — Texto Editorial */}
+          {/* Lado Esquerdo — Texto Editorial de Alta Autoridade */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 flex flex-col items-start space-y-7"
           >
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#C5A880]/10 border border-[#C5A880]/25 text-[#C5A880] text-xs font-mono uppercase tracking-widest">
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#C5A880]/10 border border-[#C5A880]/25 text-[#C5A880] text-xs font-mono uppercase tracking-widest backdrop-blur-md">
               <ShieldCheck className="w-3.5 h-3.5" />
               Advocacia de Alta Precisão & Defesa Técnica
             </div>
@@ -64,7 +69,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Lado Direito — Imagem Local /belgo.jpg em Moldura Editorial */}
+          {/* Lado Direito — Foto com Enquadramento Focado (center 20%) e Fusão de Gradiente Escuro */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -72,20 +77,25 @@ export default function Hero() {
             className="lg:col-span-5 relative"
           >
             <div className="relative mx-auto max-w-[400px] lg:max-w-none rounded-2xl overflow-hidden editorial-card p-2.5 shadow-2xl gold-border-glow">
-              <div className="relative h-[460px] sm:h-[520px] w-full rounded-xl overflow-hidden bg-[#070E17]">
+              
+              {/* Container da Imagem com Recorte focado e Gradiente de Integração Orgânica */}
+              <div className="relative h-[480px] sm:h-[540px] w-full rounded-xl overflow-hidden bg-[#070E17]">
                 <Image
                   src="/belgo.jpg"
                   alt="Dr. Belgo Conceição Machado - Advogado OAB/TO 13.254"
                   fill
                   sizes="(max-width: 768px) 100vw, 450px"
                   priority
-                  className="object-cover object-top"
+                  className="object-cover object-[center_20%] scale-105 transition-transform duration-700 hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#03070C] via-transparent to-black/20"></div>
+                
+                {/* Degradê Escuro Suave para Fusão Perfeita com o Fundo Escuro */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#03070C] via-[#03070C]/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#03070C]/30 via-transparent to-[#03070C]/30"></div>
               </div>
 
               {/* Tag de Apresentação Sobreposta */}
-              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl editorial-header flex items-center justify-between border border-white/10">
+              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl editorial-header flex items-center justify-between border border-white/10 shadow-2xl">
                 <div>
                   <h3 className="text-sm font-serif font-semibold text-white tracking-wide">
                     Belgo Conceição Machado
@@ -98,6 +108,7 @@ export default function Hero() {
                   <Award className="w-4 h-4" />
                 </div>
               </div>
+
             </div>
           </motion.div>
 

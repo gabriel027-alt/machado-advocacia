@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Specialties from "@/components/Specialties";
 import About from "@/components/About";
 import TriageForm from "@/components/TriageForm";
+import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <Specialties />
       <About />
       <TriageForm />
+      <FAQ />
       <Footer />
     </main>
   );
