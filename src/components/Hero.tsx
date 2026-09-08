@@ -7,31 +7,27 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative z-10 pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-[#03070C]">
+    <section className="relative overflow-hidden bg-[#03070C] pt-12 pb-20 md:pt-20 md:pb-28">
       
-      {/* Background com Vídeo Cinematográfico Silencioso */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0">
+      {/* 2. Injeção Real do Background em Vídeo no DOM */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <video
           autoPlay
           loop
           muted
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-30 [mask-image:linear-gradient(to_bottom,black_50%,transparent_100%)]"
+          className="w-full h-full object-cover opacity-25"
         >
           <source
             src="https://assets.mixkit.co/videos/preview/mixkit-slow-motion-of-a-courtroom-gavel-falling-41885-large.mp4"
             type="video/mp4"
           />
         </video>
-        
-        {/* Camada de Fusão e Backdrop Blur */}
-        <div className="absolute inset-0 bg-[#03070C]/80 backdrop-blur-[2px]"></div>
-
-        {/* Luzes Radiais Atmosféricas */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[radial-gradient(circle_at_50%_50%,rgba(197,168,128,0.1),transparent_65%)]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#03070C]/60 via-[#03070C]/85 to-[#03070C]" />
       </div>
 
+      {/* Conteúdo Principal com z-10 */}
       <div className="max-w-6xl mx-auto px-5 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
@@ -88,49 +84,51 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Lado Direito — Foto Isolada com Proporção 4:5, Enquadramento Fechado e Vinheta Escura */}
+          {/* 3. Lado Direito — Correção Definitiva da Foto do Dr. Belgo (belgo.jpg) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 relative"
           >
-            <div className="relative mx-auto max-w-[390px] lg:max-w-none rounded-2xl overflow-hidden editorial-card p-2.5 shadow-2xl gold-border-glow">
+            <div className="relative mx-auto max-w-[400px] lg:max-w-none rounded-2xl overflow-hidden editorial-card p-2 shadow-2xl gold-border-glow">
               
-              {/* Micro-Badge Discreto no Canto Superior */}
-              <div className="absolute top-5 left-5 z-20 px-3 py-1 rounded-full bg-[#03070C]/85 border border-[#C5A880]/40 text-[#C5A880] text-[10px] font-mono uppercase tracking-widest backdrop-blur-md shadow-md">
-                ATUAÇÃO COMBATIVA • OAB/TO
-              </div>
+              {/* Container da Imagem com Altura Ampliada h-[520px] sm:h-[580px] */}
+              <div className="relative h-[520px] sm:h-[580px] w-full rounded-2xl overflow-hidden bg-[#070E17]">
+                
+                {/* Micro-Badge Discreto no Canto Superior */}
+                <div className="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-[#03070C]/85 border border-[#C5A880]/40 text-[#C5A880] text-[10px] font-mono uppercase tracking-widest backdrop-blur-md shadow-md">
+                  ATUAÇÃO COMBATIVA • OAB/TO
+                </div>
 
-              {/* Container Proporção 4:5 com Enquadramento Focado e Vinheta Circular Escura */}
-              <div className="relative aspect-[4/5] w-full rounded-xl overflow-hidden bg-[#070E17] shadow-[inset_0_0_60px_25px_#03070C]">
+                {/* Imagem com Rosto Posicionado no Terço Superior (object-top scale-105) */}
                 <Image
                   src="/belgo.jpg"
                   alt="Dr. Belgo Conceição Machado - Advogado OAB/TO 13.254"
                   fill
                   sizes="(max-width: 768px) 100vw, 450px"
                   priority
-                  className="object-cover object-[center_15%] scale-125 transition-transform duration-700 hover:scale-130"
+                  className="object-cover object-top scale-105 transition-transform duration-700 hover:scale-110"
                 />
-                
-                {/* Degradê de Vinheta Escura para Fusão Perfeita */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#03070C] via-transparent to-[#03070C]/30"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#03070C]/60 via-transparent to-[#03070C]/60"></div>
-              </div>
 
-              {/* Tag de Apresentação Sobreposta */}
-              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl editorial-header flex items-center justify-between border border-white/10 shadow-2xl z-20">
-                <div>
-                  <h3 className="text-sm font-serif font-semibold text-white tracking-wide">
-                    Belgo Conceição Machado
-                  </h3>
-                  <p className="text-xs text-[#C5A880] font-mono mt-0.5">
-                    OAB/TO 13.254 • Titular da Banca
-                  </p>
+                {/* Vinheta Escura Suave nas Laterais e Base */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#03070C] via-transparent to-transparent opacity-80 z-10 pointer-events-none"></div>
+
+                {/* Legenda Estritamente Colada na Base Inferior (Sem cobrir o rosto/tórax) */}
+                <div className="absolute bottom-3 inset-x-3 p-3 rounded-xl editorial-header flex items-center justify-between border border-white/10 shadow-2xl z-20">
+                  <div>
+                    <h3 className="text-xs font-serif font-semibold text-white tracking-wide">
+                      Belgo Conceição Machado
+                    </h3>
+                    <p className="text-[10px] text-[#C5A880] font-mono mt-0.5">
+                      OAB/TO 13.254 • Titular da Banca
+                    </p>
+                  </div>
+                  <div className="w-8 h-8 rounded-full bg-[#C5A880]/15 border border-[#C5A880]/30 flex items-center justify-center text-[#C5A880] shrink-0">
+                    <Award className="w-4 h-4" />
+                  </div>
                 </div>
-                <div className="w-9 h-9 rounded-full bg-[#C5A880]/15 border border-[#C5A880]/30 flex items-center justify-center text-[#C5A880] shrink-0">
-                  <Award className="w-4 h-4" />
-                </div>
+
               </div>
 
             </div>
