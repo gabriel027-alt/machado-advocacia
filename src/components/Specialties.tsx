@@ -51,7 +51,7 @@ export default function Specialties() {
           </p>
         </div>
 
-        {/* Grid de Cards Editoriais com Linha de Destaque Superior Dourada no Hover */}
+        {/* Grid de Cards Editoriais com CTA de Consulta */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
           {specialties.map((item, i) => {
             const Icon = item.icon;
@@ -87,9 +87,14 @@ export default function Specialties() {
                   </p>
                 </div>
 
-                <div className="pt-6 mt-8 border-t border-white/10 flex items-center justify-between text-xs text-slate-400 font-mono">
-                  <span>Provimento 205/2021 CFOAB</span>
-                  <ArrowUpRight className="w-4 h-4 text-[#C5A880] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                <div className="pt-6 mt-8 border-t border-white/10 flex items-center justify-between text-xs text-[#C5A880] font-mono">
+                  <a
+                    href="#triagem"
+                    className="inline-flex items-center gap-1 hover:underline text-[#C5A880] group-hover:text-white transition-colors"
+                  >
+                    <span>Consultar Caso Desta Área</span>
+                    <ArrowUpRight className="w-4 h-4 text-[#C5A880] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                  </a>
                 </div>
               </motion.div>
             );

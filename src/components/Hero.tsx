@@ -9,23 +9,28 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-[#03070C] pt-12 pb-20 md:pt-20 md:pb-28">
       
-      {/* 2. Correção do Fundo em Vídeo (Hero Background) com Fonte CDN Estável */}
+      {/* 1. Background com Vídeo Cinematográfico Silencioso e Trativa de Fallback Duplo */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
         <video
           autoPlay
           loop
           muted
           playsInline
-          preload="metadata"
-          className="w-full h-full object-cover opacity-20 filter brightness-75 contrast-125"
+          preload="auto"
+          className="w-full h-full object-cover opacity-25 filter brightness-90 contrast-125"
         >
           <source
-            src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4"
+            src="https://assets.mixkit.co/videos/preview/mixkit-lawyer-reviewing-documents-in-office-41886-large.mp4"
+            type="video/mp4"
+          />
+          <source
+            src="https://assets.mixkit.co/videos/preview/mixkit-slow-motion-of-a-courtroom-gavel-falling-41885-large.mp4"
             type="video/mp4"
           />
         </video>
-        {/* Camada de fusão dark */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#03070C]/70 via-[#03070C]/90 to-[#03070C]" />
+        {/* Camada dupla de fusão profunda para garantir legibilidade */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#03070C]/60 via-[#03070C]/85 to-[#03070C]" />
+        <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,black_40%,transparent_100%)] bg-[#C5A880]/5 pointer-events-none" />
       </div>
 
       {/* Conteúdo Principal com relative z-10 */}
@@ -85,7 +90,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* 1. Lado Direito — Correção Definitiva da Foto do Dr. Belgo (belgo.jpg) com Zoom 170% */}
+          {/* Lado Direito — Foto do Dr. Belgo com Zoom de 170% e Legenda Fixa */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
