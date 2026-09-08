@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { PhoneCall } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 
 const PHONE_NUMBER = "5563992565455";
 
@@ -9,23 +9,17 @@ export default function FloatingCall() {
   return (
     <a
       href={`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(
-        "Olá, Dr. Belgo Machado. Preciso de atendimento de emergência / plantão 24h."
+        "Olá, Dr. Belgo Machado. Gostaria de atendimento de emergência / plantão 24h."
       )}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-5 right-5 z-40 bg-[#070E17]/90 border border-[#C5A880]/40 backdrop-blur-md text-[#C5A880] px-4 py-3 rounded-full shadow-2xl hover:scale-105 transition-all flex items-center gap-2.5 group"
-      aria-label="Plantão de Urgência 24h"
+      className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#10B981] hover:bg-[#0da673] text-white flex items-center justify-center shadow-2xl hover:scale-110 transition-all border-2 border-[#C5A880]/40 group"
+      aria-label="Atendimento via WhatsApp 24h"
     >
-      <span className="relative flex h-3 w-3">
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
-        <span className="relative inline-flex rounded-full h-3 w-3 bg-[#10B981]"></span>
-      </span>
-
-      <PhoneCall className="w-4 h-4 text-[#C5A880] group-hover:rotate-12 transition-transform" />
+      {/* Anel Pulsante Verde */}
+      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75 pointer-events-none"></span>
       
-      <span className="text-xs font-mono font-medium tracking-wide text-slate-100">
-        Plantão 24h: <span className="text-[#C5A880]">(63) 99256-5455</span>
-      </span>
+      <MessageCircle className="w-7 h-7 group-hover:scale-105 transition-transform" />
     </a>
   );
 }

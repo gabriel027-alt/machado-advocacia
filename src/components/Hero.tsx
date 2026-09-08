@@ -2,22 +2,22 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, Award } from "lucide-react";
+import { ShieldCheck, Award } from "lucide-react";
 import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#03070C] pt-12 pb-20 md:pt-20 md:pb-28">
+    <section className="relative overflow-hidden bg-[#03070C] pt-10 pb-20 md:pt-16 md:pb-28">
       
-      {/* 1. Background com Vídeo Cinematográfico Silencioso e Trativa de Fallback Duplo */}
+      {/* 2. Atmosfera e Fundo com Vídeo/Imagem Escuro P&B com Iluminação Dramática */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
         <video
           autoPlay
           loop
           muted
           playsInline
-          preload="auto"
-          className="w-full h-full object-cover opacity-25 filter brightness-90 contrast-125"
+          preload="metadata"
+          className="w-full h-full object-cover opacity-20 filter grayscale brightness-75 contrast-125"
         >
           <source
             src="https://assets.mixkit.co/videos/preview/mixkit-lawyer-reviewing-documents-in-office-41886-large.mp4"
@@ -28,69 +28,72 @@ export default function Hero() {
             type="video/mp4"
           />
         </video>
-        {/* Camada dupla de fusão profunda para garantir legibilidade */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#03070C]/60 via-[#03070C]/85 to-[#03070C]" />
-        <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,black_40%,transparent_100%)] bg-[#C5A880]/5 pointer-events-none" />
+        {/* Camada dupla de fusão dark com radial de estúdio */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#03070C]/80 via-[#03070C]/90 to-[#03070C]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(197,168,128,0.08),transparent_65%)]" />
       </div>
 
       {/* Conteúdo Principal com relative z-10 */}
       <div className="max-w-6xl mx-auto px-5 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Lado Esquerdo — Texto Editorial de Alta Autoridade */}
+          {/* Lado Esquerdo — Tipografia e Copy Refinadas em Caixa Alta e Baixa */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 flex flex-col items-start space-y-7"
+            className="lg:col-span-7 flex flex-col items-start space-y-6"
           >
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#C5A880]/10 border border-[#C5A880]/25 text-[#C5A880] text-xs font-mono uppercase tracking-widest backdrop-blur-md">
+            {/* Tag Superior (Pill) */}
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#03070C]/80 border border-white/10 text-[#C5A880] text-xs font-mono uppercase tracking-widest backdrop-blur-md shadow-sm">
               <ShieldCheck className="w-3.5 h-3.5" />
-              Advocacia de Alta Precisão & Defesa Técnica
+              DEFESA TÉCNICA & ATUAÇÃO COMBATIVA
             </div>
 
+            {/* Título Principal */}
             <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.12] tracking-tight text-white">
-              Defesa incansável e <span className="gold-gradient-text">rigor técnico</span> em causas de alta complexidade.
+              Defesa Incansável e <span className="gold-gradient-text">Rigor Técnico</span> em Causas de Alta Complexidade.
             </h1>
 
-            <p className="text-slate-300 text-base md:text-lg leading-relaxed max-w-xl font-light">
-              Boutique jurídica especializada na advocacia criminal combativa, sustentações perante o Tribunal do Júri, assessoria em licitações públicas e concessões previdenciárias.
+            {/* Subtítulo Equilibrado */}
+            <p className="text-slate-300 text-sm sm:text-base font-light leading-relaxed max-w-xl">
+              Boutique jurídica especializada na defesa penal ostensiva, sustentações perante o Tribunal do Júri, assessoria estratégica em licitações públicas e concessões previdenciárias.
             </p>
 
+            {/* Botões de Ação */}
             <div className="pt-2 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <a
                 href="#triagem"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-lg bg-gradient-to-r from-[#C5A880] via-[#d4ba94] to-[#a68960] text-[#03070C] font-semibold text-sm tracking-wide shadow-xl shadow-[#C5A880]/10 hover:brightness-110 transition-all hover:scale-[1.01]"
+                className="inline-flex items-center justify-center bg-[#C5A880] text-[#03070C] font-semibold py-3.5 px-8 rounded-lg text-sm tracking-wide shadow-xl shadow-[#C5A880]/15 hover:brightness-110 transition-all hover:scale-[1.01] w-full sm:w-auto"
               >
-                Iniciar Triagem de Caso
-                <ArrowRight className="w-4 h-4" />
+                INICIAR TRIAGEM DE CASO ➔
               </a>
               <a
                 href="#atuacao"
-                className="inline-flex items-center justify-center px-7 py-4 rounded-lg border border-white/15 text-slate-200 text-sm font-medium hover:bg-white/[0.05] transition-all"
+                className="inline-flex items-center justify-center border border-white/15 text-white py-3.5 px-7 rounded-lg text-sm font-medium hover:bg-white/5 transition-all w-full sm:w-auto"
               >
-                Especialidades
+                ÁREAS DE ATUAÇÃO
               </a>
             </div>
 
-            {/* Credenciais Finais */}
-            <div className="pt-8 grid grid-cols-3 gap-6 border-t border-white/10 w-full max-w-lg">
+            {/* Grid de Métricas no Rodapé da Hero em 3 Colunas Organizadas */}
+            <div className="pt-8 grid grid-cols-3 gap-4 border-t border-white/10 w-full max-w-lg">
               <div>
-                <div className="text-xl sm:text-2xl font-serif text-white font-semibold">OAB/TO</div>
-                <div className="text-xs text-slate-400 font-mono mt-0.5">Nº 13.254</div>
+                <div className="text-xs font-mono font-semibold text-white tracking-wider uppercase">DEFESA PENAL</div>
+                <div className="text-xs text-[#C5A880] font-serif mt-0.5">Tribunal do Júri</div>
               </div>
               <div>
-                <div className="text-xl sm:text-2xl font-serif text-white font-semibold">Tribunal do Júri</div>
-                <div className="text-xs text-slate-400 font-mono mt-0.5">Atuação Penal</div>
+                <div className="text-xs font-mono font-semibold text-white tracking-wider uppercase">SIGILO TOTAL</div>
+                <div className="text-xs text-[#C5A880] font-serif mt-0.5">Ética & Rigor</div>
               </div>
               <div>
-                <div className="text-xl sm:text-2xl font-serif text-white font-semibold">Sigilo Absoluto</div>
-                <div className="text-xs text-slate-400 font-mono mt-0.5">Ética Profissional</div>
+                <div className="text-xs font-mono font-semibold text-white tracking-wider uppercase">ATENDIMENTO</div>
+                <div className="text-xs text-[#C5A880] font-serif mt-0.5">Prioritário 24h</div>
               </div>
             </div>
           </motion.div>
 
-          {/* Lado Direito — Foto do Dr. Belgo com Zoom de 170% e Legenda Fixa */}
+          {/* Lado Direito — Foto do Dr. Belgo com Zoom Focado de 170% */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -99,7 +102,7 @@ export default function Hero() {
           >
             <div className="relative mx-auto max-w-[400px] lg:max-w-none rounded-2xl overflow-hidden editorial-card p-2 shadow-2xl gold-border-glow">
               
-              {/* Container da Imagem com Altura Fixa e Recorte Controlado */}
+              {/* Container da Imagem com Altura Fixa h-[480px] sm:h-[540px] */}
               <div className="h-[480px] sm:h-[540px] relative overflow-hidden rounded-xl bg-[#03070C]">
                 
                 {/* Micro-Badge Discreto no Canto Superior */}
@@ -107,7 +110,7 @@ export default function Hero() {
                   ATUAÇÃO COMBATIVA • OAB/TO
                 </div>
 
-                {/* Imagem do Dr. Belgo com Zoom Focado de 170% no Busto e Rosto */}
+                {/* Imagem do Dr. Belgo com Zoom Focado de 170% */}
                 <Image
                   src="/belgo.jpg"
                   alt="Dr. Belgo Conceição Machado - Advogado OAB/TO 13.254"
