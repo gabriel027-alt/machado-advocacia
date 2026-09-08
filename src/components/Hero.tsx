@@ -9,25 +9,26 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-[#03070C] pt-12 pb-20 md:pt-20 md:pb-28">
       
-      {/* 2. Injeção Real do Background em Vídeo no DOM */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+      {/* 2. Correção do Fundo em Vídeo (Hero Background) com Fonte CDN Estável */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
         <video
           autoPlay
           loop
           muted
           playsInline
-          preload="auto"
-          className="w-full h-full object-cover opacity-25"
+          preload="metadata"
+          className="w-full h-full object-cover opacity-20 filter brightness-75 contrast-125"
         >
           <source
-            src="https://assets.mixkit.co/videos/preview/mixkit-slow-motion-of-a-courtroom-gavel-falling-41885-large.mp4"
+            src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4"
             type="video/mp4"
           />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#03070C]/60 via-[#03070C]/85 to-[#03070C]" />
+        {/* Camada de fusão dark */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#03070C]/70 via-[#03070C]/90 to-[#03070C]" />
       </div>
 
-      {/* Conteúdo Principal com z-10 */}
+      {/* Conteúdo Principal com relative z-10 */}
       <div className="max-w-6xl mx-auto px-5 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
@@ -84,7 +85,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* 3. Lado Direito — Correção Definitiva da Foto do Dr. Belgo (belgo.jpg) */}
+          {/* 1. Lado Direito — Correção Definitiva da Foto do Dr. Belgo (belgo.jpg) com Zoom 170% */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -93,28 +94,28 @@ export default function Hero() {
           >
             <div className="relative mx-auto max-w-[400px] lg:max-w-none rounded-2xl overflow-hidden editorial-card p-2 shadow-2xl gold-border-glow">
               
-              {/* Container da Imagem com Altura Ampliada h-[520px] sm:h-[580px] */}
-              <div className="relative h-[520px] sm:h-[580px] w-full rounded-2xl overflow-hidden bg-[#070E17]">
+              {/* Container da Imagem com Altura Fixa e Recorte Controlado */}
+              <div className="h-[480px] sm:h-[540px] relative overflow-hidden rounded-xl bg-[#03070C]">
                 
                 {/* Micro-Badge Discreto no Canto Superior */}
                 <div className="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-[#03070C]/85 border border-[#C5A880]/40 text-[#C5A880] text-[10px] font-mono uppercase tracking-widest backdrop-blur-md shadow-md">
                   ATUAÇÃO COMBATIVA • OAB/TO
                 </div>
 
-                {/* Imagem com Rosto Posicionado no Terço Superior (object-top scale-105) */}
+                {/* Imagem do Dr. Belgo com Zoom Focado de 170% no Busto e Rosto */}
                 <Image
                   src="/belgo.jpg"
                   alt="Dr. Belgo Conceição Machado - Advogado OAB/TO 13.254"
                   fill
                   sizes="(max-width: 768px) 100vw, 450px"
                   priority
-                  className="object-cover object-top scale-105 transition-transform duration-700 hover:scale-110"
+                  className="object-cover object-[50%_12%] scale-[1.7] origin-top translate-y-2"
                 />
 
-                {/* Vinheta Escura Suave nas Laterais e Base */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#03070C] via-transparent to-transparent opacity-80 z-10 pointer-events-none"></div>
+                {/* Vinheta Escura Suave na Base */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#03070C] via-[#03070C]/40 to-transparent z-10 pointer-events-none"></div>
 
-                {/* Legenda Estritamente Colada na Base Inferior (Sem cobrir o rosto/tórax) */}
+                {/* Legenda Estritamente Colada na Base Inferior */}
                 <div className="absolute bottom-3 inset-x-3 p-3 rounded-xl editorial-header flex items-center justify-between border border-white/10 shadow-2xl z-20">
                   <div>
                     <h3 className="text-xs font-serif font-semibold text-white tracking-wide">
