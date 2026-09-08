@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-[#03070C] pt-10 pb-20 md:pt-16 md:pb-28">
       
-      {/* 1. Foco da Balança no Vídeo com Máscara Gradiente Assimétrica */}
+      {/* 2. Reposicionamento e Destaque do Vídeo da Balança */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
         <video
           autoPlay
@@ -17,23 +17,21 @@ export default function Hero() {
           muted
           playsInline
           preload="auto"
-          className="w-full h-full object-cover object-[80%_center] scale-105 opacity-35 filter brightness-90 contrast-125"
+          className="w-full h-full object-cover object-[75%_center] lg:object-[82%_center] opacity-40 filter brightness-95 contrast-125"
         >
           <source src="/hero-bg.mp4" type="video/mp4" />
         </video>
         
-        {/* Máscara gradiente horizontal assimétrica: escurece o lado esquerdo para o texto e revela a balança à direita */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#03070C] via-[#03070C]/80 to-transparent pointer-events-none" />
-        
-        {/* Máscara vertical para transição suave de rolagem */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#03070C]/60 to-[#03070C] pointer-events-none" />
+        {/* Gradiente direcional: escurece a coluna de texto à esquerda e revela a balança à direita */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#03070C] via-[#03070C]/75 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#03070C] via-transparent to-[#03070C]/40" />
       </div>
 
       {/* Conteúdo Principal com relative z-10 */}
       <div className="max-w-6xl mx-auto px-5 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Lado Esquerdo — Texto Editorial em Caixa Alta e Baixa Refinada */}
+          {/* Lado Esquerdo — Tipografia e Copy Refinadas em Caixa Alta e Baixa */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -46,8 +44,8 @@ export default function Hero() {
               DEFESA TÉCNICA & ATUAÇÃO COMBATIVA
             </div>
 
-            {/* 2. Título Principal em Caixa Alta e Baixa */}
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.14] tracking-tight text-white">
+            {/* 4. Título Principal em Caixa Alta e Baixa */}
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.12] tracking-tight text-white">
               Defesa Incansável e <span className="gold-gradient-text">Rigor Técnico</span> em Causas de Alta Complexidade.
             </h1>
 
@@ -60,7 +58,7 @@ export default function Hero() {
             <div className="pt-2 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <a
                 href="#triagem"
-                className="inline-flex items-center justify-center bg-[#C5A880] text-[#03070C] font-semibold py-3.5 px-8 rounded-lg text-sm tracking-wide shadow-xl shadow-[#C5A880]/15 hover:brightness-110 transition-all hover:scale-[1.01] w-full sm:w-auto"
+                className="inline-flex items-center justify-center bg-[#C5A880] hover:bg-[#d4ba94] text-[#03070C] font-semibold py-3.5 px-8 rounded-lg text-sm tracking-wide shadow-xl shadow-[#C5A880]/15 hover:brightness-110 transition-all hover:scale-[1.01] w-full sm:w-auto"
               >
                 INICIAR TRIAGEM DE CASO ➔
               </a>
@@ -72,7 +70,7 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Grid de Métricas no Rodapé da Hero */}
+            {/* Grid de Métricas no Rodapé da Hero em 3 Colunas Organizadas */}
             <div className="pt-8 grid grid-cols-3 gap-4 border-t border-white/10 w-full max-w-lg">
               <div>
                 <div className="text-xs font-mono font-semibold text-white tracking-wider uppercase">DEFESA PENAL</div>
@@ -89,39 +87,39 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* 4. Lado Direito — Card do Dr. Belgo com Vinheta e Fusão Lateral Profunda */}
+          {/* 3. Lado Direito — Correção Integral do Card do Advogado */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 relative"
           >
-            <div className="relative mx-auto max-w-[400px] lg:max-w-none rounded-2xl overflow-hidden editorial-card p-2 shadow-2xl gold-border-glow">
+            <div className="relative mx-auto max-w-[400px] lg:max-w-none border border-[#C5A880]/30 rounded-2xl bg-[#070E17]/80 backdrop-blur-md p-2 shadow-2xl">
               
-              {/* Container da Imagem com Altura Fixa e Sombra Interna Profunda */}
-              <div className="h-[480px] sm:h-[540px] relative overflow-hidden rounded-xl bg-[#03070C] shadow-[inset_0_0_50px_rgba(3,7,12,0.95)]">
+              {/* Container da Imagem */}
+              <div className="relative h-[480px] sm:h-[540px] rounded-xl overflow-hidden bg-[#03070C]">
                 
                 {/* Micro-Badge Discreto no Canto Superior */}
                 <div className="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-[#03070C]/85 border border-[#C5A880]/40 text-[#C5A880] text-[10px] font-mono uppercase tracking-widest backdrop-blur-md shadow-md">
                   ATUAÇÃO COMBATIVA • OAB/TO
                 </div>
 
-                {/* Imagem do Dr. Belgo com Zoom Focado de 170% */}
+                {/* Imagem do Dr. Belgo (scale-[1.75] origin-top) */}
                 <Image
                   src="/belgo.jpg"
                   alt="Dr. Belgo Conceição Machado - Advogado OAB/TO 13.254"
                   fill
                   sizes="(max-width: 768px) 100vw, 450px"
                   priority
-                  className="object-cover object-[50%_12%] scale-[1.7] origin-top translate-y-2"
+                  className="object-cover object-[50%_10%] scale-[1.75] origin-top"
                 />
 
-                {/* Vinheta e Gradiente Escuro Lateral/Base para Fusão Absoluta */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#03070C] via-[#03070C]/30 to-transparent z-10 pointer-events-none"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#03070C]/80 via-transparent to-[#03070C]/80 z-10 pointer-events-none"></div>
+                {/* Fusão de estúdio: Vinheta e Gradiente Lateral/Vertical */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#03070C] via-transparent to-transparent opacity-90 pointer-events-none z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#03070C]/70 via-transparent to-[#03070C]/70 pointer-events-none z-10" />
 
-                {/* Legenda Estritamente Colada na Base Inferior */}
-                <div className="absolute bottom-3 inset-x-3 p-3 rounded-xl editorial-header flex items-center justify-between border border-white/10 shadow-2xl z-20">
+                {/* Barra do Nome Colada na Base Interior */}
+                <div className="absolute bottom-3 inset-x-3 bg-[#03070C]/90 backdrop-blur-md border border-white/10 p-3 rounded-lg flex items-center justify-between z-20">
                   <div>
                     <h3 className="text-xs font-serif font-semibold text-white tracking-wide">
                       Belgo Conceição Machado
